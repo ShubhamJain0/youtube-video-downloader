@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <title>Youtube video downloader</title>
+  </head>
+
+  <body>
+    {% csrf_token %}
+    <header style="z-index: 1;">
+        <h3 id="demo">Youtube video downloader</h3>
+        <p style="font-size: 0.9em;text-align: center;">(Built using Python (Django), Selenium, Javascript and Docker)</p>
+    </header>
+   <div class="box">
+        <div id="container">
+            <div class="loader">
+                <div class="lds-dual-ring"></div>
+                <p style="margin-top: 30px;">Downloading files....</p>
+                <p style="text-align: center;">(All the files will be downloaded in project root folder)</p>
+            </div>
+            <div id="tab">
+                <a class="tab-item active">Channel</a>
+                <a class="tab-item">Single video</a>
+            </div>
+            <div class="c-section">
+                <div class="slider">
+                    <div style="display: flex;flex-direction: column;">
+                        <p style="text-align: center;">Paste the channel link below</p>
+                        <input type="text" id="channel-link" style="flex: 1;" required />
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <p style="text-align: center;">(Leave all fields empty to download all videos)</p>
+                        <p style="text-align: center;">How many videos you want to download?</p>
+                        <input type="number" id="video-count" style="flex: 1;" placeholder="" min="1" />
+                        <p style="text-align: center;margin-top: 10px;">or select a range of videos</p>
+                        <div style="display: flex;flex-direction: row;justify-content: space-evenly;">
+                            <input type="number" id="start-range" style="width: 40%;" placeholder="Start" min="1" />
+                            <input type="number" id="end-range" style="width: 40%;" placeholder="End" />
+                        </div>
+                    </div>
+                </div>
+                <div id="button-area">
+                    <a class="button" id="nextButton">Next</a>
+                    <a class="button" id="c-button">Download</a>
+                </div>
+            </div>
+            <div class="s-section">
+                <p style="text-align: center;">Paste the video link below</p>
+                    <input type="text" id="video-link" />
+                    <a class="button" id="s-button">Download video</a>
+            </div>
+        </div>
+   </div>
+   <div id="message-box">
+        <span id="close">x</span>
+        <p id="message">Lorem Ipsum</p>
+   </div>
+
+   <footer style="z-index: 1;margin-top: 75px;">
+        <p style="font-size: 0.9em;text-align: center;">Designed and Developed by <a href="https://shubhamjain.io/" style="text-decoration:none;" target="_blank">Shubham Jain</a>.</p>
+   </footer>
+
+    <div class='waves'>
+        <div class='wave -one'></div>
+        <div class='wave -two'></div>
+        <div class='wave -three'></div>
+    </div>
+
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+   <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+   </body>
+</html>
